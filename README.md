@@ -1,5 +1,5 @@
 # FLstreamline
-Fedavg streamline code for 'A Multi-Model Approach for Handling Concept Drifting Data in Federated Learning"  
+FedMCD code for 'A Multi-Model Approach for Handling Concept Drifting Data in Federated Learning"  
 
 ## Dependencies
     copy
@@ -8,6 +8,7 @@ Fedavg streamline code for 'A Multi-Model Approach for Handling Concept Drifting
     numpy
     arff
     torch
+    wandb
     csv
     torchvision
     matplotlib
