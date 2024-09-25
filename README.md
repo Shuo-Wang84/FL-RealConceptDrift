@@ -23,6 +23,25 @@ FedMCD code for 'A Multi-Model Approach for Handling Concept Drifting Data in Fe
 
 ## Scenario Design
 We have established 17 experimental scenarios, varying in 5 temporal drift features (speed, severity, recurrence, frequency, predictability) and 4 spatial drift features(coverage, synchronism, direction, correlation) based on the categorization of conceptdrift in FL. All of the cases generate 1000 batches (i.e. time steps) of data for each of a total of 10 clients. Every batch contains 100 samples.
+| No. | Speed       | Severity | Coverage | Other Settings      |
+|:---:|:-----------:|:--------:|:--------:|:-------------------:|
+| 1   | Abrupt      | High     | High     | Synchronous         |
+| 2   | Gradual     | High     | High     | Synchronous         |
+| 3   | Incremental | High     | High     | Synchronous         |
+| 4   | Abrupt      | Medium   | High     | Synchronous         |
+| 5   | Gradual     | Medium   | High     | Synchronous         |
+| 6   | Incremental | Medium   | High     | Synchronous         |
+| 7   | Abrupt      | Low      | High     | Synchronous         |
+| 8   | Gradual     | Low      | High     | Synchronous         |
+| 9   | Incremental | Low      | High     | Synchronous         |
+| 10  | Abrupt      | High     | Medium   | Synchronous         |
+| 11  | Abrupt      | High     | Low      | Synchronous         |
+| 12  | Abrupt      | High     | High     | Asynchronous        |
+| 13  | Abrupt      | High     | High     | Recurrent           |
+| 14  | Abrupt      | High     | High     | Frequent            |
+| 15  | Abrupt      | High     | High     | Independent         |
+| 16  | Abrupt      | High     | High     | Different Direction |
+| 17  | Abrupt      | High     | High     | Unpredictable       |
 The detailed settings inside the scenarios are given below:
 ### Speed: 
 describes how fast the current data concept changes to a new concept. We consider three types of speed changes – abrupt, gradual, incremental. Abrupt drift is achieved by suddenly rotating the hyperplane boundary by 180 degrees at time step 200. Gradual drift involves a probabilistic 180-degree change between time steps 200 and 300, where the probability of the old concept decreases by 10% every 10 batches. Starting from time step 300, only the new concept exists. For incremental drift, the data boundary slowly rotates by 180 degrees between time steps 200 and 300. (Scenarios (1, 2, 3), (4, 5, 6), (7, 8, 9))
