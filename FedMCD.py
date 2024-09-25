@@ -26,7 +26,7 @@ import wandb
 # initial wandb
 wandb.init(project='fed_mcd', name='localused')
 
-time_start = time.time()  # 记录开始时间
+time_start = time.time()  
 # initial parameter
 drift_type = 'normal_data'
 NOISE_PROB = drift_type
