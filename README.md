@@ -42,6 +42,7 @@ We have established 17 experimental scenarios, varying in 5 temporal drift featu
 | 15  | Abrupt      | High     | High     | Independent         |
 | 16  | Abrupt      | High     | High     | Different Direction |
 | 17  | Abrupt      | High     | High     | Unpredictable       |
+
 The detailed settings inside the scenarios are given below:
 ### Speed: 
 describes how fast the current data concept changes to a new concept. We consider three types of speed changes – abrupt, gradual, incremental. Abrupt drift is achieved by suddenly rotating the hyperplane boundary by 180 degrees at time step 200. Gradual drift involves a probabilistic 180-degree change between time steps 200 and 300, where the probability of the old concept decreases by 10% every 10 batches. Starting from time step 300, only the new concept exists. For incremental drift, the data boundary slowly rotates by 180 degrees between time steps 200 and 300. (Scenarios (1, 2, 3), (4, 5, 6), (7, 8, 9))
