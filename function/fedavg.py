@@ -2,10 +2,6 @@ import torch
 import math
 import random
 # fedavg
-# def server_aggregate(global_model, local_models,_):
-#     for global_param, local_param_list in zip(global_model.parameters(),zip(*[local_model.parameters() for local_model in local_models])):
-#         global_param.data = torch.mean(torch.stack(local_param_list), dim=0)
-
 
 # FedAvg with dynamic aggregation weights
 def server_aggregate(global_model, local_models, aggregation_weights):
@@ -27,10 +23,10 @@ def server_aggregate(global_model, local_models, aggregation_weights):
         # global_param.data = torch.mean(torch.stack(weighted_local_params), dim=0)
         # print(global_param)
 
-#随机选择聚合全局模型
+#random aggregate
 def server_aggregate_random(global_model, local_models, aggregation_weights):
     num_local_models = len(local_models)
-    num_models_to_aggregate = random.randint(1, num_local_models) #选择最少多少客户端参与
+    num_models_to_aggregate = random.randint(1, num_local_models) # client aggregate num
     selected_local_models = random.sample(local_models, num_models_to_aggregate)
 
     for global_param, selected_local_params in zip(global_model.parameters(),
@@ -44,7 +40,7 @@ def server_aggregate_random(global_model, local_models, aggregation_weights):
         global_param.data[torch.isnan(global_param.data)] = 0
 
 
-#根据客户端表现选择聚合模型
+#rank aggregate
 def server_aggregate_top(global_model, local_models, aggregation_weights, clients_scores):
     indices = list(range(len(local_models)))
     sorted_clients, sorted_indices = zip(*sorted(zip(clients_scores, indices), reverse=True))
