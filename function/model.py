@@ -20,7 +20,6 @@ def weights_init(m):
         nn.init.constant_(m.bias, 0)
 
 #  DNN 8layers
-# 定义一个8层的深度神经网络模型
 class DNN(nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim):
         super(DNN, self).__init__()
